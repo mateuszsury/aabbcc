@@ -5,7 +5,7 @@ void Bot::makeRandomChoice()
 {
 	int c;
 	int l;
-	int cash = rand() % 100 + 1;
+	int cash = rand() % 10 + 1;
 	vector<Color> colors;
 	vector<int> numbers;
 
