@@ -2,6 +2,7 @@
 
 void Bot::makeRandomChoice()
 {
+	//esrg	
 }
 
 Bot::Bot()
