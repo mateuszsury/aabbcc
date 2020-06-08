@@ -5,7 +5,7 @@ void Bot::makeRandomChoice()
 {
 	int c;
 	int l;
-	int cash = rand() % 10 + 1;
+	int cash = rand() % 100 + 1;
 	vector<Color> colors;
 	vector<int> numbers;
 
@@ -27,9 +27,10 @@ void Bot::makeRandomChoice()
 	setChoicePtr(new Choice(cash, numbers, colors));
 }
 
-Bot::Bot()
+Bot::Bot(int cash)
 {
 	std::wstringstream botNameStr;
 	botNameStr << L"Bot " << rand() % 1000;
 	this->nick = botNameStr.str();
+	this->cash = cash;
 }

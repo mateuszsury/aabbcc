@@ -18,8 +18,8 @@ void MainMenu::show()
 	if (wybor == 1)
 	{
 		Casino* casino = fucktory.create();
-		Game game;
-		game.start(casino);
+		Game game(casino);
+		game.start();
 		fucktory.save(casino);
 	}
 	else if (wybor == 2)

@@ -1,6 +1,7 @@
 #pragma once
 #include "Player.h"
 #include <vector>
+#include <functional>
 
 using std::vector;
 
@@ -9,6 +10,9 @@ class Casino
 private:
 	vector<Player*> players;
 public:
+	std::function<void(int, Color)> randomizeFinishHandler;
+
+
 	Casino();
 	~Casino();
 

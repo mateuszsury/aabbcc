@@ -2,6 +2,11 @@
 
 Choice::Choice(int cash, vector<int> numbers, vector<Color> colors)
 {
+	for (auto i = numbers.begin(); i < numbers.end(); i++) {
+		if (*i < 1 || *i > 35) {
+			throw ILLEGAL_NUMBER;
+		}
+	}
 	this->cash = cash;
 	this->numbers = numbers;
 	this->colors = colors;

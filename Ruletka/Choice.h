@@ -11,10 +11,11 @@ class Choice
 	vector<Color> colors;
 	int cash;
 public:
-	Choice(int cash, vector<int>, vector<Color> colors);
+	Choice(int cash, vector<int> numbers, vector<Color> colors);
 	vector<int> getNumbers();
 	vector<Color> getColors();
 	int getCash();
 	Choice();
 
+	const int ILLEGAL_NUMBER = 2;
 };

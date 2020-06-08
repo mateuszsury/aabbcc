@@ -4,11 +4,12 @@
 
 using std::wstring;
 
+
 class Player
 {
-
 private:
 	Choice* choice;
+
 protected:
 	int cash;
 	void setChoicePtr(Choice* choice);
@@ -21,6 +22,8 @@ public:
 	Choice* getChoice();
 	void giveCash(int amount);
 	void takeCash(int amount);
-	Player(std::wstring nick, int cash);
+	Player(wstring nick, int cash);
 	int getCash();
+
+	static const int NOT_ENOUGH_CASH = 1;
 };

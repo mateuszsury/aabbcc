@@ -6,5 +6,5 @@ class Bot : public Player
 {
 public:
 	void makeRandomChoice();
-	Bot();
+	Bot(int cash);
 };

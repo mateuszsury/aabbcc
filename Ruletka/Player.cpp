@@ -20,6 +20,9 @@ void Player::setChoicePtr(Choice* choice)
     if (this->choice != nullptr) {
         delete this->choice;
     }
+    if (choice->getCash() > cash) {
+        throw NOT_ENOUGH_CASH;
+    }
     this->choice = choice;
 }
 
@@ -45,5 +48,5 @@ Player::Player(std::wstring nick, int cash)
 
 int Player::getCash()
 {
-    return 0;
+    return cash;
 }
