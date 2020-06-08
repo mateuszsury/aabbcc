@@ -1,6 +1,6 @@
 #include "Number.h"
 
-Number::Number(int number)
+Number::Number(int number)  //konstruktor
 {
     this->number = number;
 }

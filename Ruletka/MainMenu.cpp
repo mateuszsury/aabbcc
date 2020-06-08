@@ -2,6 +2,7 @@
 #include "GameFactory.h"
 #include "Game.h"
 #include <iostream>
+using namespace std;
 
 using std::wcout;
 
@@ -11,12 +12,18 @@ void MainMenu::show()
 
     setlocale(LC_ALL, "pl_PL");
 	// wyśw. menu nowa gra, wczytaj
+	int wybor;
+	wcout << L"Wybierz opcję.\n1. Nowa gra\n2. Wczytaj gre" << std::endl;
+	cin >> wybor;
+	if (wybor == 1)
+	{
+		Casino* casino = fucktory.create();
+		Game game;
+		game.start(casino);
+		fucktory.save(casino);
+	}
+	else if (wybor == 2)
+	{
 
-	wcout << L"Wybierz opcję." << std::endl;
-	Casino* casino = fucktory.create(); 
-	Game game;
-	game.start(casino);
-
-
-	fucktory.save(casino);
+	}
 }

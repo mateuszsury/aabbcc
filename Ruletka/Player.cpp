@@ -7,10 +7,12 @@ Choice* Player::getChoice()
 
 void Player::giveCash(int amount)
 {
+    this->cash = cash + amount;
 }
 
 void Player::takeCash(int amount)
 {
+    this->cash = cash - amount;
 }
 
 void Player::setChoicePtr(Choice* choice)
