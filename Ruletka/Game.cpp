@@ -17,7 +17,7 @@ void Game::start()
 	// funkcja dodająca gracza ludzkiego i n botów do kasyna. Zwraca utworzone obiekty w kontenerze "pair"
 	pair<vector<Bot*>, Human*> players = addPlayers(L"Mateusz", 10);
 
-	// wyświetlanie wyniku losowania
+	// wyświetlanie wyniku losowania - do wyszukania w google "C++ lambdas".
 	casino->randomizeFinishHandler = [this](int n, Color c) { this->randomizeFinishHandler(n, c); };
 
 	// Wyświetlanie stanu portfeli graczy
