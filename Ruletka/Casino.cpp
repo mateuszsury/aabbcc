@@ -1,6 +1,7 @@
 #include "Casino.h"
 #include <iostream>
 
+using std::wcout;
 
 Casino::Casino()
 {
@@ -15,12 +16,20 @@ void Casino::nextRound()
 { 
     for (auto i = players.begin(); i < players.end(); i++) {
         Player* player = *i;
-        std::wcout << "Kasa: " << player->getChoice()->getCash() << std::endl;
+        wcout << "Gracz " << player->nick << std::endl;
+        
+        wcout << "Kasa: " << player->getChoice()->getCash() << std::endl;
         auto numbers = player->getChoice()->getNumbers();
+        wcout << "liczby: ";
         for (auto it = numbers.begin(); it < numbers.end(); it++) {
-            std::wcout << "liczby: " << *it << std::endl;
+            wcout << *it << std::endl;
         }
-        //std::wcout << "Kolory: " << player.getChoice().getColors() << std::endl; 
+        auto colors = player->getChoice()->getColors();
+        for (auto it = colors.begin(); it < colors.end(); it++) {
+            wstring col = *it == Color::Black ? L"czarny" : L"czerwony";
+            wcout << "kolor: " << col << std::endl;
+        }
+        wcout << std::endl;
     }
 }
 

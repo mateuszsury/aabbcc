@@ -11,11 +11,12 @@ private:
 	Choice* choice;
 protected:
 	int cash;
-	std::wstring nick;
 	void setChoicePtr(Choice* choice);
 	Player(); 
 
 public:
+	std::wstring nick;
+
 	~Player();
 	Choice* getChoice();
 	void giveCash(int amount);

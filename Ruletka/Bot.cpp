@@ -1,32 +1,35 @@
 #include "Bot.h"
-
+#include <sstream>
 
 void Bot::makeRandomChoice()
 {
-	srand(time(NULL));
-	int x = rand() % 4 + 1;
+	int c;
+	int l;
+	int cash = rand() % 10 + 1;
+	vector<Color> colors;
+	vector<int> numbers;
 
-	if (x = 1) //bot losuje tylko kolor
+	bool betColor = rand() % 2 == 1;
+	bool betNumber = rand() % 2 == 1;
+
+	if (betColor) //bot losuje tylko kolor
 	{
-		srand(time(NULL));
 		int c = rand() % 2 + 1;
+		colors.push_back(c == 1 ? Color::Black : Color::Red);
 	}
-	else if (x = 2) //bot losuje tylko liczbe
+
+	if (betNumber) //bot losuje tylko liczbe
 	{
-		srand(time(NULL));
 		int l = rand() % 35 + 1;
-	}
-	else //bot losuje i kolor i liczbe
-	{
-		srand(time(NULL));
-		int c = rand() % 2 + 1; //losowanie koloru
-
-		srand(time(NULL));
-		int l = rand() % 35 + 1; //losowanie liczby
+		numbers.push_back(l);
 	}
 
+	setChoicePtr(new Choice(cash, numbers, colors));
 }
 
 Bot::Bot()
 {
+	std::wstringstream botNameStr;
+	botNameStr << L"Bot " << rand() % 1000;
+	this->nick = botNameStr.str();
 }
