@@ -20,25 +20,6 @@ Casino::~Casino()
 void Casino::nextRound()
 { 
     /*
-    for (auto i = players.begin(); i < players.end(); i++) {
-        Player* player = *i;
-        wcout << "Gracz " << player->nick << std::endl;
-        
-        wcout << "Kasa: " << player->getChoice()->getCash() << std::endl;
-        auto numbers = player->getChoice()->getNumbers();
-        wcout << "liczby: ";
-        for (auto it = numbers.begin(); it < numbers.end(); it++) {
-            wcout << *it << std::endl;
-        }
-        auto colors = player->getChoice()->getColors();
-        for (auto it = colors.begin(); it < colors.end(); it++) {
-            wstring col = *it == Color::Black ? L"czarny" : L"czerwony";
-            wcout << "kolor: " << col << std::endl;
-        }
-        wcout << std::endl;
-    }
-*/
-    /*
     1. Gracz obstawił x na kolor
        0) traci x
        1) dostaje x
@@ -85,7 +66,6 @@ void Casino::nextRound()
 			}
 		}
         if (player->getCash() <= 0) {
-            wcout << L"Usunąłęm gracza " << player->nick << std::endl;
             players.erase(players.begin() + i);
             i--;
         }
