@@ -17,5 +17,5 @@ public:
 	int getCash();
 	Choice();
 
-	const int ILLEGAL_NUMBER = 2;
+	static const int ILLEGAL_NUMBER = 2;
 };

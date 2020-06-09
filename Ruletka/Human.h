@@ -12,4 +12,5 @@ public:
 
 
 	void setChoice(int cash, std::vector<int> numbers, std::vector<Color> colors);
+	bool isBot();
 };

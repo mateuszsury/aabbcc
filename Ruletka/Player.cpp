@@ -18,9 +18,10 @@ void Player::takeCash(int amount)
 void Player::setChoicePtr(Choice* choice)
 {
     if (this->choice != nullptr) {
-        delete this->choice;
+        delete this->choice; 
     }
-    if (choice->getCash() > cash) {
+    int possibleLossCount = choice->getColors().size() + choice->getNumbers().size();
+    if (choice->getCash()*possibleLossCount > cash) {
         throw NOT_ENOUGH_CASH;
     }
     this->choice = choice;
@@ -36,6 +37,7 @@ Player::~Player()
 {
     if (this->choice != nullptr) {
         delete choice;
+        choice = nullptr;
     }
 }
 

@@ -1,3 +1,2 @@
-﻿  Game.cpp
-C:\Users\Jacek\source\repos\aabbcc\Ruletka\Game.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Bot.cpp
   Ruletka.vcxproj -> C:\Users\Jacek\source\repos\aabbcc\x64\Debug\Ruletka.exe

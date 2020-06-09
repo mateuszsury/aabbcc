@@ -25,5 +25,7 @@ public:
 	Player(wstring nick, int cash);
 	int getCash();
 
+	virtual bool isBot() = 0;
+
 	static const int NOT_ENOUGH_CASH = 1;
 };

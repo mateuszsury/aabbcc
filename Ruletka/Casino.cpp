@@ -54,8 +54,8 @@ void Casino::nextRound()
         randomizeFinishHandler(winNumber, winColor);
     }
 
-	for (auto i = players.begin(); i < players.end(); i++) {
-		Player* player = *i;
+    for (int i = 0; i < players.size(); i++) {
+        Player* player = players[i];
 		Choice* choice = player->getChoice();
         if (choice == nullptr) {
             continue;
@@ -84,6 +84,11 @@ void Casino::nextRound()
 				player->takeCash(loss);
 			}
 		}
+        if (player->getCash() <= 0) {
+            wcout << L"Usunąłęm gracza " << player->nick << std::endl;
+            players.erase(players.begin() + i);
+            i--;
+        }
 	}
 }
 

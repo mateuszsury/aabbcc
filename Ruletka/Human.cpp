@@ -12,3 +12,8 @@ void Human::setChoice(int cash, vector<int> numbers, vector<Color> colors) //ust
 {
  	setChoicePtr(new Choice(cash, numbers, colors));
 }
+
+bool Human::isBot()
+{
+	return false;
+}

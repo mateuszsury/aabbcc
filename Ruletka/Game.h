@@ -11,7 +11,7 @@ class Game
 	void status();
 	bool checkContinuePlaying(Player* player);
 	void round(pair<vector<Bot*>, Human*> players);
-	pair<vector<Bot*>, Human*> addPlayers(wstring humanName, int botCount);
+	pair<vector<Bot*>, Human*> addPlayers();
 	Choice makeChoice();
 	void randomizeFinishHandler(int number, Color color);
 public:

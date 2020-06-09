@@ -15,7 +15,7 @@ void Game::start()
 	wcout << L"Rozpoczynamy grę" << std::endl;
 
 	// funkcja dodająca gracza ludzkiego i n botów do kasyna. Zwraca utworzone obiekty w kontenerze "pair"
-	pair<vector<Bot*>, Human*> players = addPlayers(L"Mateusz", 10);
+	pair<vector<Bot*>, Human*> players = addPlayers();
 
 	// wyświetlanie wyniku losowania - do wyszukania w google "C++ lambdas".
 	casino->randomizeFinishHandler = [this](int n, Color c) { this->randomizeFinishHandler(n, c); };
@@ -43,12 +43,19 @@ void Game::status()
 	}
 }
 
-pair<vector<Bot*>, Human*> Game::addPlayers(wstring humanName, int botCount)
+pair<vector<Bot*>, Human*> Game::addPlayers()
 {
+	wcout << L"Imię gracza: ";
+	wstring humanName;
+	wcin >> humanName;
 	auto human = new Human(humanName, 100);
-	casino->addPlayer(human);
+	casino->addPlayer(human); 
+
+	int botCount;
+	wcout << L"Liczba botów: ";
+	wcin >> botCount;
 	vector<Bot*> bots;
-	for (int i = 1; i <= 10; i++) {
+	for (int i = 1; i <= botCount; i++) {
 		auto bot = new Bot(100);
 		bots.push_back(bot);
 		casino->addPlayer(bot);
@@ -122,10 +129,10 @@ bool Game::checkContinuePlaying(Player* player)
 
 void Game::round(pair<vector<Bot*>, Human*> players)
 {
-	bool choosing = true; 
+	bool choosing = true;
 	while (choosing) {
-		Choice choice = makeChoice(); 
 		try {
+			Choice choice = makeChoice();
 			players.second->setChoice(choice.getCash(), choice.getNumbers(), choice.getColors());
 			choosing = false;
 		}
@@ -133,8 +140,12 @@ void Game::round(pair<vector<Bot*>, Human*> players)
 			if (errCode == Player::NOT_ENOUGH_CASH) {
 				wcout << L"Za mało pieniędzy!" << endl;
 			}
+			else if (errCode == Choice::ILLEGAL_NUMBER) {
+				wcout << L"Liczby muszą być w zakresie od 1 do 35" << endl;
+			}
 		}
 	}
+
 	for (auto bot = players.first.begin(); bot < players.first.end(); bot++) {
 		(*bot)->makeRandomChoice();
 	}
